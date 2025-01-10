@@ -18,6 +18,21 @@ namespace VoluntraGProject.Controllers
             return View();
         }
 
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult NGOsProfile()
+        {
+            return View();
+        }
+
+        public IActionResult Blog()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

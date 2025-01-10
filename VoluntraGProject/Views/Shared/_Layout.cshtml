@@ -1,199 +1,152 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Voluntra</title>
-	<meta name="viewport" content="width=device-width">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="~/css/all.css">
-	<link rel="stylesheet" type="text/css" href="~/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="~/css/lightbox.css">
-	<link rel="stylesheet" type="text/css" href="~/css/flexslider.css">
-	<link rel="stylesheet" type="text/css" href="~/css/owl.carousel.css">
-	<link rel="stylesheet" type="text/css" href="~/css/owl.theme.default.css">
-	<link rel="stylesheet" type="text/css" href="~/css/jquery.rateyo.css" />
-    <link rel="stylesheet" type="text/css" href="~/css/jquery.mmenu.all.css" />
-	<link rel="stylesheet" type="text/css" href="~/css/meanmenu.min.css" />
-	<link rel="stylesheet" type="text/css" href="~/css/inner-page-style.css">
-	<link rel="stylesheet" type="text/css" href="~/css/style.css">
-	<link href="~/https://fonts.googleapis.com/css?family=Raleway:400,500,600,700" rel="stylesheet">
-	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <meta charset="utf-8">
+    <title>Voluntra</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
 
+    <!-- Favicon -->
+    <link href="~/Helpz/img/favicon.ico" rel="icon">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="~/Helpz/lib/flaticon/font/flaticon.css" rel="stylesheet">
+    <link href="~/Helpz/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/Helpz/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="~/Helpz/css/style.css" rel="stylesheet">
 </head>
-<body>
-	<div id="page" class="site" itemscope itemtype="http://schema.org/LocalBusiness">
-		<header class="site-header">
-			<div class="top-header">
-				<div class="container">
-					<div class="top-header-left">
-						<div class="top-header-block">
-							<a href="mailto:info@Voluntra.com" itemprop="email"><i class="fas fa-envelope"></i> info@Voluntra.com</a>
-						</div>
-						<div class="top-header-block">
-							<a href="tel:+962777501316" itemprop="telephone"><i class="fas fa-phone"></i> +962 777501316</a>
-						</div>
-					</div>
-					<div class="top-header-right">
-						<div class="login-block">
-							<a asp-action="Login">Login /</a>
-							<a asp-Action="Register">Register</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Top header Close -->
-			<div class="main-header">
-				<div class="container">
-					<div class="logo-wrap" itemprop="logo">
-						<img src="~/images/site-logo.jpg" alt="Logo Image">
-						<!-- <h1>Education</h1> -->
-					</div>
-					<div class="nav-wrap">
-						<nav class="nav-desktop">
-							<ul class="menu-list">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">NGOs</a></li>
-								<li class="menu-parent">
-									Language
-									<ul class="sub-menu">
-										<li><a href="#">Arabic</a></li>
-										<li><a href="#">English</a></li>
-									</ul>
-								</li>
 
-								<li><a href="">Gallery</a></li>
-								<li><a href="">Feedback</a></li>
-								<li><a href="">Contact</a></li>
-							</ul>
-						</nav>
-						<div id="bar">
-							<i class="fas fa-bars"></i>
-						</div>
-						<div id="close">
-							<i class="fas fa-times"></i>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
-		<!-- Header Close -->
+<body>
+    <!-- Top Bar Start -->
+    <div class="top-bar d-none d-md-block">
+        <div class="container-fluid">
+        </div>
+    </div>
+    <!-- Top Bar End -->
+    <!-- Nav Bar Start -->
+    <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand">Voluntra</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a asp-controller="Home" asp-action="Index" class="nav-item nav-link active">Home</a>
+                    <a asp-controller="Home" asp-action="About" class="nav-item nav-link">About</a>
+                    <a asp-controller="Event" asp-action="Event" class="nav-item nav-link">Events</a>
+                    <a asp-controller="Home" asp-action="Blog" class="nav-item nav-link">Blog</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Language</a>
+                        <div class="dropdown-menu">
+                            <a href="single.html" class="dropdown-item">English</a>
+                            <a href="service.html" class="dropdown-item">Arabic</a>
+                        </div>
+                    </div>
+                    <a href="/#Feedback" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Nav Bar End -->
 
     <div>
         <main role="main">
-          
-			@RenderBody()
+
+            @RenderBody()
 
         </main>
     </div>
 
+    <!-- Footer Start -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-contact">
+                        <h2>Our Head Office</h2>
+                        <p><i class="fa fa-map-marker-alt"></i>123 Street, New York, USA</p>
+                        <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
+                        <p><i class="fa fa-envelope"></i>info@example.com</p>
+                        <div class="footer-social">
+                            <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-custom" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-custom" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-link">
+                        <h2>Popular Links</h2>
+                        <a href="">About Us</a>
+                        <a href="">Contact Us</a>
+                        <a href="">Popular Causes</a>
+                        <a href="">Upcoming Events</a>
+                        <a href="">Latest Blog</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-link">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-newsletter">
+                        <h2>Quick Contact</h2>
+                        <form>
+                            <section class="quick-contact">
+                                <input type="email" name="email" placeholder="Your Email*">
+                                <textarea placeholder="Type your message*"></textarea>
+                            <button class="btn btn-custom">Submit</button>
+                            <label>Don't worry, we don't spam!</label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; <a href="#">Your Site Name</a>, All Right Reserved.</p>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-		<!-- footer from here -->
-		<section class="query-section">
-			<div class="container">
-				<p>Any Queries? Ask us a question at<a href="tel:+962777501316"><i class="fas fa-phone"></i> +962 777501316</a></p>
-			</div>
-		</section>
-		<!-- End of Query Section -->
+    <!-- Pre Loader -->
+    <div id="loader" class="show">
+        <div class="loader"></div>
+    </div>
 
-		<!--black footer-->
-		<footer class="page-footer" itemprop="footer" itemscope itemtype="http://schema.org/WPFooter">
-			<div class="footer-first-section">
-				<div class="container">
-					<div class="box-wrap" itemprop="about">
-						<header>
-							<h1>about</h1>
-						</header>
-						<p>We Are A platform for Volunteers to find opportunities and NGOs to post requirements.</p>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Helpz/lib/easing/easing.min.js"></script>
+    <script src="~/Helpz/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/Helpz/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/Helpz/lib/counterup/counterup.min.js"></script>
+    <script src="~/Helpz/lib/parallax/parallax.min.js"></script>
 
-						<h4><a href="tel:tel:+962777501316"><i class="fas fa-phone"></i>  +962 777501316</a></h4>
-						<h4><a href="mailto:info@Voluntra.com"><i class="fas fa-envelope"></i> info@Voluntra.com</a></h4>
-						<h4><a href=""><i class="fas fa-map-marker-alt"></i>Gongabu, Kathmandu, Nepal</a></h4>
-					</div>
+    <!-- Contact Javascript File -->
+    <script src="~/Helpz/mail/jqBootstrapValidation.min.js"></script>
+    <script src="~/Helpz/mail/contact.js"></script>
 
-
-					<div class="box-wrap">
-						<header>
-							<h1>quick contact</h1>
-						</header>
-						<section class="quick-contact">
-							<input type="email" name="email" placeholder="Your Email*">
-							<textarea placeholder="Type your message*"></textarea>
-							<button>send message</button>
-						</section>
-					</div>
-
-				</div>
-			</div>
-			<!-- End of box-Wrap -->
-			<div class="footer-second-section">
-				<div class="container">
-					<hr class="footer-line">
-					<ul class="social-list">
-						<li><a href=""><i class="fab fa-facebook-square"></i></a></li>
-						<li><a href=""><i class="fab fa-twitter"></i></a></li>
-						<li><a href=""><i class="fab fa-skype"></i></a></li>
-						<li><a href=""><i class="fab fa-youtube"></i></a></li>
-						<li><a href=""><i class="fab fa-instagram"></i></a></li>
-					</ul>
-					<hr class="footer-line">
-				</div>
-			</div>
-			<div class="footer-last-section">
-				<div class="container">
-					<p>Copyright 2025 &copy; Voluntra.com
-				</div>
-			</div>
-		</footer>
-
-		<!-- <nav id="menu">
-			<ul>
-				<li><a href="#">HOME</a></li>
-				<li>
-					<span>COURSES</span>
-					<ul>
-						<li><a href="#/courses/child">Child</a></li>
-						<li><a href="#/courses/child">Child</a></li>
-						<li>
-							<span>Child</span>
-							<ul>
-								<li><a href="#/courses/child/grandChild">Grand Child</a></li>
-								<li><a href="#/courses/child/grandChild">Grand Child</a></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li>
-					<a href="#">gallery</a>
-					<ul>
-						<li><a href="#">Child</a></li>
-						<li><a href="#">Child</a></li>
-						<li><a href="#">Child</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="#">news</a>
-					<ul>
-						<li><a href="#">Child</a></li>
-						<li><a href="#">Child</a></li>
-						<li><a href="#">Child</a></li>
-					</ul>
-				</li>
-				<li><a href="#">about</a></li>
-				<li><a href="#">contact</a></li>
-			</ul>
-		</nav> -->
-
-	</div>
-	<script type="text/javascript" src="~/js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="~/js/lightbox.js"></script>
-	<script type="text/javascript" src="~/js/all.js"></script>
-	<script type="text/javascript" src="~/js/isotope.pkgd.min.js"></script>
-	<script type="text/javascript" src="~/js/owl.carousel.js"></script>
-	<script type="text/javascript" src="~/js/jquery.flexslider.js"></script>
-	<script type="text/javascript" src="~/js/jquery.rateyo.js"></script>
-	<!-- <script type="text/javascript" ~/src="js/jquery.mmenu.all.js"></script> -->
-	<!-- <script type="text/javascript" ~/src="js/jquery.meanmenu.min.js"></script> -->
-	<script type="text/javascript" src="~/js/custom.js"></script>
-	<script src="~/js/site.js" asp-append-version="true"></script>
-
+    <!-- Template Javascript -->
+    <script src="~/Helpz/js/main.js"></script>
 </body>
 </html>
