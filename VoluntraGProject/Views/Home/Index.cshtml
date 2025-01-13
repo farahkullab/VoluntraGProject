@@ -10,11 +10,11 @@
                     <div class="carousel-text">
                         <h1>Let's be kind for children</h1>
                         <p>
-                            Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
+                            Together, we can build a better future—one volunteer, one opportunity at a time.
                         </p>
                         <div class="carousel-btn">
-                            <a class="btn btn-custom" href="">Login</a>
-                            <a class="btn btn-custom btn-play" href="" >Register</a>
+                            <a class="btn btn-custom" asp-controller="Account" asp-action="Login">Login</a>
+                            <a class="btn btn-custom btn-play" asp-controller="Account" asp-action="Register" >Register</a>
                         </div>
                     </div>
                 </div>
@@ -25,10 +25,10 @@
                     <div class="carousel-text">
                         <h1>Get Involved with helping hand</h1>
                         <p>
-                            Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
+                            Empowering Volunteers. Supporting NGOs. Together for a Better World.
                         </p>
                         <div class="carousel-btn">
-                            <a class="btn btn-custom" href="">Login</a>
+                            <a class="btn btn-custom" asp-controller="Account" asp-action="Login">Login</a>
                             <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Register</a>
                         </div>
                     </div>
@@ -40,10 +40,10 @@
                     <div class="carousel-text">
                         <h1>Bringing smiles to millions</h1>
                         <p>
-                            Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
+                            Join a network of passionate volunteers and NGOs making a difference every day.
                         </p>
                         <div class="carousel-btn">
-                            <a class="btn btn-custom" href="">Login</a>
+                            <a class="btn btn-custom" asp-controller="Account" asp-action="Login">Login</a>
                             <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Register</a>
                         </div>
                     </div>
@@ -52,23 +52,6 @@
         </div>
     </div>
     <!-- Carousel End -->
-    <!-- Video Modal Start-->
-    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Video Modal End -->
 
 
     <!-- Causes Start -->
@@ -76,24 +59,28 @@
         <div class="container">
             <div class="section-header text-center">
                 <p>Popular NGOs</p>
-                <h2>Let's know about charity causes around the world</h2>
+                <h2>Let's know about charity NGOs around the world</h2>
             </div>
-            <div class="owl-carousel causes-carousel">
-                <div class="causes-item">
-                    <div class="causes-img">
-                        <img src="~/Helpz/img/causes-1.jpg" alt="Image">
-                    </div>
-                    <div class="causes-progress">
-                    </div>
-                    <div class="causes-text">
-                        <h3>Lorem ipsum dolor sit</h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phasell nec pretium mi. Curabit facilis ornare velit non vulputa</p>
-                    </div>
-                    <div class="causes-btn">
-                        <a class="btn btn-custom justify-content: center;" asp-controller="Home" asp-action="NGOsProfile">Learn More</a>
+
+          @*   @foreach (var item in Model) *@
+            {
+                <div class="owl-carousel causes-carousel">
+                    <div class="causes-item">
+                        <div class="causes-img">
+                            <img src= alt="Image">
+                        </div>
+                        <div class="causes-progress">
+                        </div>
+                        <div class="causes-text">
+                            <h3>NGOs </h3>
+                            <p>NGO Description</p>
+                        </div>
+                        <div class="causes-btn">
+                            <a class="btn btn-custom justify-content: center;" asp-controller="NGOsProfile" asp-action="NGOsProfile">Learn More</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
     </div>
     <!-- Causes End -->
@@ -227,19 +214,19 @@
         <div class="container">
             <div class="section-header text-center">
                 <p>Feedback</p>
-                <h2>What people are talking about our charity activities</h2>
+                <h2>What Volunteers are talking about our activities</h2>
             </div>
             <div class="owl-carousel testimonials-carousel">
                 <div class="testimonial-item">
                     <div class="testimonial-profile">
                         <div class="testimonial-name">
-                            <h3>Person Name</h3>
-                            <p>Profession</p>
+                            <h3> Name</h3>
+                            <p>Subject</p>
                         </div>
                     </div>
                     <div class="testimonial-text">
                         <p>
-                            Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
+                           Message
                         </p>
                     </div>
                 </div>
@@ -253,7 +240,7 @@
         <div class="container">
             <div class="section-header text-center">
                 <p>Get In Touch</p>
-                <h2>Give Us your feedback</h2>
+                <h2>Give Us your feedback!</h2>
             </div>
             <div class="contact-img">
                 <img src="~/Helpz/img/contact.jpg" alt="Image">

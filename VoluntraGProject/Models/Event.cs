@@ -5,6 +5,7 @@ namespace VoluntraGProject.Models
 	public class Event
 	{
 		public int EventId { get; set; }
+		public int NGOId { get; set; }
 		public string EventName { get; set; }
 		public string EventDescription { get; set; }
 		public DateTime EventDate { get; set; }

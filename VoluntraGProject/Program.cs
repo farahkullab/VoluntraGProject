@@ -1,3 +1,8 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using VoluntraGProject.Data;
+using VoluntraGProject.Models.ViewModels;
+
 namespace VoluntraGProject
 {
     public class Program
@@ -8,6 +13,17 @@ namespace VoluntraGProject
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("constr"));
+            });
+
+
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>().
+               AddEntityFrameworkStores<AppDbContext>();
+
 
             var app = builder.Build();
 
@@ -25,6 +41,12 @@ namespace VoluntraGProject
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthorization();
+
+            app.MapControllerRoute(
+           name: "areas",
+           pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+             );
 
             app.MapControllerRoute(
                 name: "default",
