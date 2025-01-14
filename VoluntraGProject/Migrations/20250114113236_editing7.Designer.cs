@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VoluntraGProject.Data;
 
@@ -11,9 +12,11 @@ using VoluntraGProject.Data;
 namespace VoluntraGProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250114113236_editing7")]
+    partial class editing7
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -242,6 +245,8 @@ namespace VoluntraGProject.Migrations
 
                     b.HasKey("EventId");
 
+                    b.HasIndex("NGOId");
+
                     b.ToTable("Events");
                 });
 
@@ -464,6 +469,17 @@ namespace VoluntraGProject.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("VoluntraGProject.Models.Event", b =>
+                {
+                    b.HasOne("VoluntraGProject.Models.NGO", "NGO")
+                        .WithMany()
+                        .HasForeignKey("NGOId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("NGO");
                 });
 #pragma warning restore 612, 618
         }

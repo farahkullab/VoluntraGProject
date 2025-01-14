@@ -1,4 +1,7 @@
-﻿<body>
+﻿
+
+
+<body>
     <!-- Carousel Start -->
     <div class="carousel">
         <div class="container-fluid">
@@ -54,36 +57,8 @@
     <!-- Carousel End -->
 
 
-    <!-- Causes Start -->
-    <div class="causes">
-        <div class="container">
-            <div class="section-header text-center">
-                <p>Popular NGOs</p>
-                <h2>Let's know about charity NGOs around the world</h2>
-            </div>
 
-          @*   @foreach (var item in Model) *@
-            {
-                <div class="owl-carousel causes-carousel">
-                    <div class="causes-item">
-                        <div class="causes-img">
-                            <img src= alt="Image">
-                        </div>
-                        <div class="causes-progress">
-                        </div>
-                        <div class="causes-text">
-                            <h3>NGOs </h3>
-                            <p>NGO Description</p>
-                        </div>
-                        <div class="causes-btn">
-                            <a class="btn btn-custom justify-content: center;" asp-controller="NGOsProfile" asp-action="NGOsProfile">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
-    <!-- Causes End -->
+    @await Component.InvokeAsync("NGOSection")
 
 
     <!-- Service Start -->
@@ -209,31 +184,11 @@
     </div>
     <!-- Facts End -->
 
-    <!-- Testimonial Start -->
-    <div class="testimonial">
-        <div class="container">
-            <div class="section-header text-center">
-                <p>Feedback</p>
-                <h2>What Volunteers are talking about our activities</h2>
-            </div>
-            <div class="owl-carousel testimonials-carousel">
-                <div class="testimonial-item">
-                    <div class="testimonial-profile">
-                        <div class="testimonial-name">
-                            <h3> Name</h3>
-                            <p>Subject</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-text">
-                        <p>
-                           Message
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
+    <!-- Feedback Start -->
+
+    @await Component.InvokeAsync("Feedback")
+
+    <!-- Feedback End -->
 
     <!-- Contact Start -->
     <div class="contact" id="Feedback">

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<NGO>
+
+
+<!-- Causes Start -->
+<div class="causes">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Popular NGOs</p>
+            <h2>Let's know about charity NGOs around the world</h2>
+        </div>
+
+            <div class="owl-carousel causes-carousel">
+
+            @foreach (var item in Model)
+            {
+                <div class="causes-item">
+                    <div class="causes-img">
+                        <img src="@item.Image" alt="Image">
+                    </div>
+                    <div class="causes-progress">
+                        <h6>@item.Type</h6>
+                    </div>
+                    <div class="causes-text">
+                        <h3>@item.NGOName </h3>
+                        <p>@item.Description</p>
+                    </div>
+                    <div class="causes-btn">
+                        <a class="btn btn-custom justify-content: center;" asp-controller="NGOsProfile" asp-action="NGOsProfile">Learn More</a>
+                    </div>
+                </div>
+            }
+            </div>
+    </div>
+</div>
+<!-- Causes End -->

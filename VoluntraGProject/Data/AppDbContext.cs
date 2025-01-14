@@ -15,7 +15,7 @@ namespace VoluntraGProject.Data
         public DbSet<Event> Events { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<NGO> NGOs { get; set; }
-        public DbSet<VoluntraGProject.Models.Volunteer> Volunteer { get; set; } = default!;
+        public DbSet<Application> Applications { get; set; } 
 
 
     }

@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Event>
 
 <body>
     <!-- Page Header Start -->
@@ -16,6 +16,8 @@
         </div>
     </div>
     <!-- Page Header End -->
+
+
     <!-- Event Start -->
     <div class="event">
         <div class="container">
@@ -24,25 +26,28 @@
                 <h2>Be ready for our upcoming charity events</h2>
             </div>
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="event-item">
-                        <img src="~/Helpz/img/event-1.jpg" alt="Image">
-                        <div class="event-content">
-                            <div class="event-meta">
-                                <p><i class="fa fa-calendar-alt"></i>01-Jan-45</p>
-                                <p><i class="far fa-clock"></i>8:00 - 10:00</p>
-                                <p><i class="fa fa-map-marker-alt"></i>New York</p>
-                            </div>
-                            <div class="event-text">
-                                <h3>Lorem ipsum dolor sit</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                                </p>
-                                <a class="btn btn-custom" asp-controller="Application" asp-action="Application">Join Now</a>
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-6">
+                        <div class="event-item">
+                            <img src="@item.Image" alt="Image">
+                            <div class="event-content">
+                                <div class="event-meta">
+                                    <p><i class="fa fa-calendar-alt"></i>@item.EventDate.ToString("yyyy-MM-dd")</p>
+                                    <p><i class="far fa-clock"></i>@item.EventDate.ToString("HH:mm tt")</p>
+                                    <p><i class="fa fa-map-marker-alt"></i>@item.Location</p>
+                                </div>
+                                <div class="event-text">
+                                    <h3>@item.EventName</h3>
+                                    <p>
+                                        @item.EventDescription
+                                    </p>
+                                    <a class="btn btn-custom" asp-controller="Application" asp-action="Application">Join Now</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
     </div>

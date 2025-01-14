@@ -113,7 +113,7 @@ namespace VoluntraGProject.Areas.Administrator.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("NGOId,NGOName,Description,Image")] NGO nGO)
+        public async Task<IActionResult> Edit(int id, [Bind("NGOId,NGOName,Description,DetailedDescription,PhoneNumber,Address,Type,Image")] NGO nGO)
         {
             if (id != nGO.NGOId)
             {

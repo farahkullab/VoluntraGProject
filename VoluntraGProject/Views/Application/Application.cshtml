@@ -1,5 +1,10 @@
-﻿<body>
+﻿
+ 
+@{
+    ViewData["Title"] = "Event Applying";
+}
 
+<body>
     <!-- Page Header Start -->
     <div class="page-header">
         <div class="container">
@@ -30,7 +35,7 @@
                     </div>
                     <div class="comment-form">
                         <h2>Apply to the event</h2>
-                        <form>
+                        <form asp-action="Apply" method="post">
                             <div class="form-group">
                                 <label for="name">Name *</label>
                                 <input type="text" class="form-control" id="name">
@@ -40,7 +45,7 @@
                                 <input type="email" class="form-control" id="email">
                             </div>
                             <div class="form-group">
-                                <label for="website">Your Skills</label>
+                                <label for="website">Your Skills *</label>
                                 <input type="url" class="form-control" id="website">
                             </div>
 

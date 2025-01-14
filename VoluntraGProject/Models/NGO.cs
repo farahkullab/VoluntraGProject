@@ -7,6 +7,7 @@ namespace VoluntraGProject.Models
 		public int NGOId { get; set; }
 		public string NGOName { get; set; }
 		public string Description { get; set; }
+		public string DetailedDescription { get; set; }
 		public string PhoneNumber { get; set; }
 		public string Address { get; set; }
 		public string Type { get; set; } 
