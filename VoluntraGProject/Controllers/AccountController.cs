@@ -43,6 +43,7 @@ namespace VoluntraGProject.Controllers
             if (r.Succeeded)
 
             {
+                var roleResult = await userManager.AddToRoleAsync(user, "NGO");
                 return RedirectToAction("Login");
             }
             foreach (var err in r.Errors)

@@ -1,12 +1,16 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using VoluntraGProject.Data;
 using VoluntraGProject.Models;
 
-namespace VoluntraGProject.NGODashboard.Controllers
+namespace VoluntraGProject.Areas.NGODashboard.Controllers
 {
+    [Area("NGODashboard")]
     public class ApplicationsController : Controller
     {
         private readonly AppDbContext _context;
@@ -41,9 +45,8 @@ namespace VoluntraGProject.NGODashboard.Controllers
         }
 
         // GET: NGODashboard/Applications/Create
-        public IActionResult Create(int? id)
+        public IActionResult Create()
         {
-            ViewBag.eventid=id;
             return View();
         }
 
@@ -52,7 +55,7 @@ namespace VoluntraGProject.NGODashboard.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Application application)
+        public async Task<IActionResult> Create([Bind("ApplicationId,EventId,VolunteerName,Email,skills,Experince,AppliedDate")] Application application)
         {
             if (ModelState.IsValid)
             {

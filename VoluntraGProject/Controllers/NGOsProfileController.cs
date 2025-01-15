@@ -12,9 +12,20 @@ namespace VoluntraGProject.Controllers
         {
             _context = context;
         }
-        public IActionResult NGOsProfile()
+        public IActionResult NGOsProfile(int? id)
         {
-            var profile = _context.Events.ToList();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var profile = _context.NGOs.Find(id);
+
+            if (profile == null)
+            {
+                return NotFound();
+            }
+
             return View(profile);
         }
     }

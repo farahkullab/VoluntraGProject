@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VoluntraGProject.Models
 {
@@ -6,7 +7,8 @@ namespace VoluntraGProject.Models
     {
         public int ApplicationId { get; set; }
         [ForeignKey("Event")]
-        public int EventId { get; set; }
+        [Required]
+        public int? EventId { get; set; }
         public string VolunteerName { get; set; }
         public string Email { get; set; }
         public string skills { get; set; }
