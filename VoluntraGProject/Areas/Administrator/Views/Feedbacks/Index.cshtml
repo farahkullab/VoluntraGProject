@@ -4,50 +4,127 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="page-title">Feedback Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
-<table class="table">
+
+<table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Subject)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Message)
-            </th>
-            <th></th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Subject)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Message)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.FeedbackID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FeedbackID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FeedbackID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.Subject)</td>
+                <td>@Html.DisplayFor(modelItem => item.Message)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.FeedbackID" class="btn btn-warning btn-sm">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.FeedbackID" class="btn btn-info btn-sm">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.FeedbackID" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<style>
+    /* Styling for the page */
+    .page-title {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2rem;
+        color: #4CAF50;
+    }
+
+    .table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+
+    .table th, .table td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    .table-striped tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .table th {
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+    }
+
+    .btn {
+        padding: 8px 16px; /* Increased padding */
+        text-decoration: none;
+        margin: 3px;
+        border-radius: 5px;
+        color: white;
+        font-size: 1rem; /* Consistent font size */
+        display: inline-block;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        width: auto;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        width: auto;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        width: auto;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        width: auto;
+    }
+
+    .btn-sm {
+        font-size: 0.875rem;
+        padding: 5px 10px; /* Small button padding */
+    }
+
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .ngo-image {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    /* Hover effects for the action buttons */
+    .btn:hover {
+        opacity: 0.8;
+    }
+
+    /* Ensure action buttons are aligned properly */
+    td a {
+        margin: 0 5px;
+    }
+</style>

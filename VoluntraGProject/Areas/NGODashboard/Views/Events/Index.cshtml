@@ -4,62 +4,42 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Events</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-success btn-sm" asp-action="Create">Create New Event</a>
 </p>
-<table class="table">
-    <thead>
+
+<table class="table table-bordered align-middle">
+    <thead class="table-dark">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NGOId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EventName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EventDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EventDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th></th>
+            <th>@Html.DisplayNameFor(model => model.EventName)</th>
+            <th>@Html.DisplayNameFor(model => model.EventDescription)</th>
+            <th>@Html.DisplayNameFor(model => model.EventDate)</th>
+            <th>@Html.DisplayNameFor(model => model.Location)</th>
+            <th>@Html.DisplayNameFor(model => model.Image)</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NGOId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EventName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EventDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EventDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                <img src="@item.Image" alt="img" class="img-fluid" style="width:100px;height:100px" />
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.EventId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.EventId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.EventId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.EventName)</td>
+                <td>@Html.DisplayFor(modelItem => item.EventDescription)</td>
+                <td>@Html.DisplayFor(modelItem => item.EventDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.Location)</td>
+                <td>
+                    <img src="@item.Image" alt="Event Image" class="img-fluid" style="width:100px; height:100px;" />
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.EventId">Edit</a> 
+                        <a class="btn btn-secondary btn-sm" asp-action="Details" asp-route-id="@item.EventId">Details</a> 
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.EventId">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

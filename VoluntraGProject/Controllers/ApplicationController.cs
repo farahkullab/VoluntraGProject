@@ -56,10 +56,21 @@ namespace VoluntraGProject.NGODashboard.Controllers
         {
             if (ModelState.IsValid)
             {
+                // تعيين EventId من ViewBag إذا كان فارغًا
+                if (application.EventId == 0 && ViewBag.eventid != null)
+                {
+                    application.EventId = (int)ViewBag.eventid;
+                }
+
                 _context.Add(application);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                TempData["SuccessMessage"] = "The form has been submitted successfully! Please wait for our response.";
+
+                return RedirectToAction(nameof(Create));
             }
+
+            // إذا كانت هناك أخطاء في النموذج، إعادة عرض الفورم
             return View(application);
         }
 

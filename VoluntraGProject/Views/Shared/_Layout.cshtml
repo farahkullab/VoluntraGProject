@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@*    @model VoluntraGProject.Models.Contact *@
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -55,13 +57,13 @@
                     <a asp-controller="Home" asp-action="About" class="nav-item nav-link">About</a>
                     <a asp-controller="Event" asp-action="Event" class="nav-item nav-link">Events</a>
                     <a asp-controller="Home" asp-action="Blog" class="nav-item nav-link">Blog</a>
-                    <div class="nav-item dropdown">
+                   @*  <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Language</a>
                         <div class="dropdown-menu">
                             <a href="single.html" class="dropdown-item">English</a>
                             <a href="service.html" class="dropdown-item">Arabic</a>
                         </div>
-                    </div>
+                    </div> *@
                     <a href="/#Feedback" class="nav-item nav-link">Feedback</a>
                 </div>
             </div>
@@ -104,13 +106,25 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-newsletter">
                         <h2>Quick Contact</h2>
-                        <form>
+                        <form asp-controller="Contact" asp-action="Submit" method="post">
+                            @Html.AntiForgeryToken()  <!-- حماية ضد هجمات CSRF -->
                             <section class="quick-contact">
-                                <input type="email" name="email" placeholder="Your Email*">
-                                <textarea placeholder="Type your message*"></textarea>
-                            <button class="btn btn-custom">Submit</button>
+                                <input type="email" name="Email" placeholder="Your Email*" required />
+                                <textarea name="Message" placeholder="Type your message*" required></textarea>
+                                <button type="submit" class="btn btn-custom">Submit</button>
+                            </section>
                             <label>Don't worry, we don't spam!</label>
                         </form>
+                        @if (TempData["SuccessMessage"] != null)
+                        {
+                            <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+                        }
+
+                        @if (TempData["ErrorMessage"] != null)
+                        {
+                            <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+                        }
+
                     </div>
                 </div>
             </div>
@@ -118,7 +132,7 @@
         <div class="container copyright">
             <div class="row">
                 <div class="col-md-6">
-                    <p>&copy; <a href="#">Your Site Name</a>, All Right Reserved.</p>
+                    <p>&copy; <a href="#">Voluntra</a>, All Right Reserved.</p>
                 </div>
                 <div class="col-md-6">
                 </div>

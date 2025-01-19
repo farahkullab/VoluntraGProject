@@ -1,0 +1,94 @@
+/* الخطوط والألوان العامة */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #495057;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* تصميم الجدول */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    border: 1px solid #dee2e6;
+    text-align: left;
+    padding: 12px;
+}
+
+table th {
+    background-color: #f1f3f5;
+    color: #495057;
+}
+
+table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+table tr:hover {
+    background-color: #e9ecef;
+}
+
+/* الروابط */
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* الأزرار */
+a[asp-action] {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+a[asp-action]:hover {
+    background-color: #0056b3;
+}
+
+/* تصميم الصفحة */
+p a {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+}
+
+p a:hover {
+    background-color: #218838;
+}
+
+.table {
+    width: 100%; /* ضبط عرض الجدول ليكون متناسقًا */
+    text-align: center;
+}
+
+.btn-group .btn {
+    margin: 0 3px;
+}
+
+.table td img {
+    border-radius: 8px; /* جعل الصور بزوايا مستديرة */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}

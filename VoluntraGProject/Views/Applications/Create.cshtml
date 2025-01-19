@@ -21,53 +21,56 @@
         </div>
     </div>
     <!-- Page Header End -->
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+
     <!-- Single Post Start-->
     <div class="single">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="comment-text">
-                        <h3><a href="">Event Name</a></h3>
-                        <span>01 Jan 2045 at 12:00pm Event Date Time </span>
-                        <p>
-                            Event Description Lorem ipsum dolor sit amet elit. Integer lorem augue purus mollis sapien, non eros leo in nunc. Donec a nulla vel turpis tempor ac vel justo. In hac platea dictumst.
-                        </p>
-                    </div>
                     <div class="comment-form">
                         <h2>Apply to the event</h2>
                         <form asp-action="Create">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div type="hidden">
-                                <input asp-for="EventId" class="form-control" value="@ViewBag.eventid"  />
+                                <input type="hidden" asp-for="EventId" value="@ViewBag.eventid" />
                                 <span asp-validation-for="EventId" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="VolunteerName" class="control-label"></label>
-                                <input asp-for="VolunteerName" class="form-control" />
+                                <label asp-for="VolunteerName" class="control-label">Enter Your Name *</label>
+                                <input asp-for="VolunteerName" type="text" class="form-control" id="name">
                                 <span asp-validation-for="VolunteerName" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Email" class="control-label"></label>
-                                <input asp-for="Email" class="form-control" />
+                                <label asp-for="Email" class="control-label">Email *</label>
+                                <input asp-for="Email" type="email" class="form-control" id="email">
                                 <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="skills" class="control-label"></label>
-                                <input asp-for="skills" class="form-control" />
+                                <label asp-for="skills" class="control-label">Your Skills *</label>
+                                <input asp-for="skills" type="text" class="form-control" id="website">
                                 <span asp-validation-for="skills" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Experince" class="control-label"></label>
-                                <input asp-for="Experince" class="form-control" />
+                                <label asp-for="Experince" class="control-label">Your Experince *</label>
+                                <textarea asp-for="Experince" id="message" cols="30" rows="5" class="form-control"></textarea>
                                 <span asp-validation-for="Experince" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="AppliedDate" class="control-label"></label>
-                                <input asp-for="AppliedDate" class="form-control" />
+                                <input id="AppliedDate" asp-for="AppliedDate" class="form-control" />
                                 <span asp-validation-for="AppliedDate" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Create" class="btn btn-primary" />
+                                <input type="submit" id="submitButton" name="Apply Now" value="Create" class="btn btn-custom">
                             </div>
                         </form>
                     </div>
@@ -105,4 +108,16 @@
     <!-- Single Post End-->
     <!-- Back to top button -->
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <script>
+        document.getElementById("submitButton").value = "Apply Now";
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const today = new Date();
+            const formattedDate = today.toISOString().split("T")[0]; // الحصول على التاريخ بصيغة YYYY-MM-DD
+            document.getElementById("AppliedDate").value = formattedDate;
+        });
+    </script>
 </body>
