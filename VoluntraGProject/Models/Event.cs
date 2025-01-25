@@ -5,6 +5,7 @@ namespace VoluntraGProject.Models
 	public class Event
 	{
 		public int EventId { get; set; }
+		[ForeignKey("NGO")]
 		public int NGOId { get; set; }
 		public string EventName { get; set; }
 		public string EventDescription { get; set; }
@@ -13,6 +14,7 @@ namespace VoluntraGProject.Models
 		public string? Image { get; set; }
 		[NotMapped]
 		public IFormFile ImageFile { get; set; }
+        public NGO NGO { get; internal set; }
     }
 
 }

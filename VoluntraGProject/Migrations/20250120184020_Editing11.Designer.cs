@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VoluntraGProject.Data;
 
@@ -11,9 +12,11 @@ using VoluntraGProject.Data;
 namespace VoluntraGProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250120184020_Editing11")]
+    partial class Editing11
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -163,10 +166,6 @@ namespace VoluntraGProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ApplicationId"));
 
-                    b.Property<string>("Age")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateOnly>("AppliedDate")
                         .HasColumnType("date");
 
@@ -177,33 +176,15 @@ namespace VoluntraGProject.Migrations
                     b.Property<int>("EventId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Experience")
+                    b.Property<string>("Experince")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsExpereinced")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Location")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TravelingAbility")
-                        .HasColumnType("bit");
 
                     b.Property<string>("VolunteerName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("YearsOfExperience")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Yourfield")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.PrimitiveCollection<string>("skills")
+                    b.Property<string>("skills")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -355,6 +336,9 @@ namespace VoluntraGProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -492,13 +476,11 @@ namespace VoluntraGProject.Migrations
 
             modelBuilder.Entity("VoluntraGProject.Models.Event", b =>
                 {
-                    b.HasOne("VoluntraGProject.Models.NGO", "NGO")
+                    b.HasOne("VoluntraGProject.Models.NGO", null)
                         .WithMany("Events")
                         .HasForeignKey("NGOId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("NGO");
                 });
 
             modelBuilder.Entity("VoluntraGProject.Models.NGO", b =>

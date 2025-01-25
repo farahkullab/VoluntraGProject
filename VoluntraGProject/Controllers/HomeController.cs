@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using VoluntraGProject.Models;
 
@@ -7,6 +8,7 @@ namespace VoluntraGProject.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -17,7 +19,6 @@ namespace VoluntraGProject.Controllers
         {
             return View();
         }
-
         public IActionResult About()
         {
             return View();

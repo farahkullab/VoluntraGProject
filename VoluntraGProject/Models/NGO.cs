@@ -2,7 +2,7 @@
 
 namespace VoluntraGProject.Models
 {
-	public class NGO
+    public class NGO
 	{
 		public int NGOId { get; set; }
 		public string NGOName { get; set; }
@@ -10,10 +10,10 @@ namespace VoluntraGProject.Models
 		public string DetailedDescription { get; set; }
 		public string PhoneNumber { get; set; }
 		public string Address { get; set; }
-		public string Type { get; set; } 
+		public string Type { get; set; }
 		public string? Image { get; set; }
 		[NotMapped]
 		public IFormFile ImageFile { get; set; }
-	}
+        public ICollection<Event> Events { get; set; } = new List<Event>();
+    }
 }
-

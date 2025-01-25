@@ -755,20 +755,20 @@ Author Email:   contact@techydevs.com
             // }, 2000)
         }
 
-        form.submit(function (e) {
-            e.preventDefault();
-            formData = $(this).serialize();
-            submitBtn.innerHTML = 'Sending...';
-            setTimeout(function () {
-                $.ajax({
-                    type: 'POST',
-                    url: form.attr('action'),
-                    data: formData
-                })
-                    .done(doneFunction)
-                    .fail(failFunction);
-            }, 2000)
-        });
+        //form.submit(function (e) {
+        //    e.preventDefault();
+        //    formData = $(this).serialize();
+        //    submitBtn.innerHTML = 'Sending...';
+        //    setTimeout(function () {
+        //        $.ajax({
+        //            type: 'POST',
+        //            url: form.attr('action'),
+        //            data: formData
+        //        })
+        //            .done(doneFunction)
+        //            .fail(failFunction);
+        //    }, 2000)
+        //});
 
         /*====== Dark mode js ========*/
         const themePicker = document.querySelectorAll(".theme-picker-btn");

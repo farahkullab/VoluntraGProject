@@ -12,6 +12,13 @@ namespace VoluntraGProject.Controllers
         {
             _context = context;
         }
+        
+
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         [HttpPost]
         public IActionResult Create(Feedback feedback)

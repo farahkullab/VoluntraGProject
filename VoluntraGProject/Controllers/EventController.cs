@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using VoluntraGProject.Models;
+using Microsoft.EntityFrameworkCore; // تأكد من إضافة هذا
 using VoluntraGProject.Data;
-using Microsoft.EntityFrameworkCore;
 
 namespace VoluntraGProject.Controllers
 {
@@ -16,8 +15,10 @@ namespace VoluntraGProject.Controllers
 
         public IActionResult Event()
         {
-            // تحميل جميع الأحداث من قاعدة البيانات
-            var events = _context.Events.ToList();
+            // تحميل الأحداث مع الكيان المرتبط (NGO)
+            var events = _context.Events
+                                 .Include(e => e.NGO) // تضمين الكيان المرتبط
+                                 .ToList();
             return View(events);
         }
     }

@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="single-content">
-                        <h2>@Model.NGOName</h2>
+                        <h1>@Model.NGOName</h1>
                         <p>
                             @Model.Description
                         </p>
@@ -62,77 +62,28 @@
                 <div class="col-lg-4">
                     <div class="sidebar">
                         <div class="sidebar-widget">
-                            <div class="search-widget">
-                                <form>
-                                    <input class="form-control" type="text" placeholder="Search Keyword">
-                                    <button class="btn"><i class="fa fa-search"></i></button>
-                                </form>
-                            </div>
-                        </div>
 
                         <div class="sidebar-widget">
                             <h2 class="widget-title">Recent Posted Events</h2>
                             <div class="recent-post">
-                                <div class="post-item">
-                                    <div class="post-img">
-                                        <img src="~/Helpz/img/post-1.jpg" />
-                                    </div>
-                                    <div class="post-text">
-                                        <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                        <div class="post-meta">
-                                            <p>By<a href="">Admin</a></p>
-                                            <p>In<a href="">Web Design</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="post-item">
-                                    <div class="post-img">
-                                        <img src="~/Helpz/img/post-2.jpg" />
-                                    </div>
-                                    <div class="post-text">
-                                        <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                        <div class="post-meta">
-                                            <p>By<a href="">Admin</a></p>
-                                            <p>In<a href="">Web Design</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="post-item">
-                                    <div class="post-img">
-                                        <img src="~/Helpz/img/post-3.jpg" />
-                                    </div>
-                                    <div class="post-text">
-                                        <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                        <div class="post-meta">
-                                            <p>By<a href="">Admin</a></p>
-                                            <p>In<a href="">Web Design</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="post-item">
-                                    <div class="post-img">
-                                        <img src="~/Helpz/img/post-4.jpg" />
-                                    </div>
-                                    <div class="post-text">
-                                        <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                        <div class="post-meta">
-                                            <p>By<a href="">Admin</a></p>
-                                            <p>In<a href="">Web Design</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="post-item">
-                                    <div class="post-img">
-                                        <img src="~/Helpz/img/post-5.jpg" />
-                                    </div>
-                                    <div class="post-text">
-                                        <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                        <div class="post-meta">
-                                            <p>By<a href="">Admin</a></p>
-                                            <p>In<a href="">Web Design</a></p>
-                                        </div>
-                                    </div>
-                                </div>
+                                    @if (Model.Events != null && Model.Events.Any())
+                                    {
+                                        @foreach (var item in Model.Events)
+                                        {
+                                            <div class="post-item">
+                                                <div class="post-img">
+                                                    <img src="@item.Image" alt="Image" />
+                                                </div>
+                                                <div class="post-text">
+                                                    <a href="">@item.EventName</a>
+                                                    <div class="post-meta">
+                                                        <p>@item.Location</p>
+                                                        <p>@item.EventDate</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
                             </div>
                         </div>
 

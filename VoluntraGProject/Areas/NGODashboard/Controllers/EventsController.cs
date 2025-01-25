@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using VoluntraGProject.Data;
 using VoluntraGProject.Models;
 
-namespace VoluntraGProject.Areas.NGODashboard.Controllers
+namespace VoluntraGProject.Areas.NGODashboard
 {
     [Area("NGODashboard")]
     public class EventsController : Controller
@@ -23,7 +23,8 @@ namespace VoluntraGProject.Areas.NGODashboard.Controllers
         // GET: NGODashboard/Events
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Events.ToListAsync());
+            var appDbContext = _context.Events.Include(e => e.NGO); // تم تعديل هنا
+            return View(await appDbContext.ToListAsync());
         }
 
         // GET: NGODashboard/Events/Details/5
@@ -35,6 +36,7 @@ namespace VoluntraGProject.Areas.NGODashboard.Controllers
             }
 
             var @event = await _context.Events
+                .Include(e => e.NGO) // تم تعديل هنا
                 .FirstOrDefaultAsync(m => m.EventId == id);
             if (@event == null)
             {
@@ -47,6 +49,7 @@ namespace VoluntraGProject.Areas.NGODashboard.Controllers
         // GET: NGODashboard/Events/Create
         public IActionResult Create()
         {
+            ViewData["NGOId"] = new SelectList(_context.NGOs, "NGOId", "NGOId");
             return View();
         }
 
@@ -89,6 +92,7 @@ namespace VoluntraGProject.Areas.NGODashboard.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["NGOId"] = new SelectList(_context.NGOs, "NGOId", "NGOId", @event.NGOId);
             return View(@event);
         }
 
@@ -105,6 +109,7 @@ namespace VoluntraGProject.Areas.NGODashboard.Controllers
             {
                 return NotFound();
             }
+            ViewData["NGOId"] = new SelectList(_context.NGOs, "NGOId", "NGOId", @event.NGOId);
             return View(@event);
         }
 
@@ -140,6 +145,7 @@ namespace VoluntraGProject.Areas.NGODashboard.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["NGOId"] = new SelectList(_context.NGOs, "NGOId", "NGOId", @event.NGOId);
             return View(@event);
         }
 
@@ -152,6 +158,7 @@ namespace VoluntraGProject.Areas.NGODashboard.Controllers
             }
 
             var @event = await _context.Events
+                .Include(e => e.NGO) // تم تعديل هنا
                 .FirstOrDefaultAsync(m => m.EventId == id);
             if (@event == null)
             {

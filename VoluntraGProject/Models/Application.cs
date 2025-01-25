@@ -12,7 +12,14 @@ namespace VoluntraGProject.Models
         public string VolunteerName { get; set; }
         public string Email { get; set; }
         public string skills { get; set; }
-        public string Experince { get; set; }
+        public string Experience { get; set; }
         public DateOnly AppliedDate { get; set; }
+        public bool TravelingAbility { get; set; }
+        public string Age { get; set; }
+        public string YearsOfExperience { get; set; }
+        public string Yourfield { get; set; }
+        public bool IsExpereinced { get; set; }
+        public string Location { get; set; }
     }
 }
+

@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using VoluntraGProject.Data;
 using VoluntraGProject.Models;
 
-namespace VoluntraGProject.Areas.NGODashboard.Controllers
+namespace VoluntraGProject.Areas.Administrator.Controllers
 {
-    [Area("NGODashboard")]
+    [Area("Administrator")]
     public class ApplicationsController : Controller
     {
         private readonly AppDbContext _context;
@@ -20,13 +20,13 @@ namespace VoluntraGProject.Areas.NGODashboard.Controllers
             _context = context;
         }
 
-        // GET: NGODashboard/Applications
+        // GET: Administrator/Applications
         public async Task<IActionResult> Index()
         {
             return View(await _context.Applications.ToListAsync());
         }
 
-        // GET: NGODashboard/Applications/Details/5
+        // GET: Administrator/Applications/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,13 +44,13 @@ namespace VoluntraGProject.Areas.NGODashboard.Controllers
             return View(application);
         }
 
-        // GET: NGODashboard/Applications/Create
+        // GET: Administrator/Applications/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: NGODashboard/Applications/Create
+        // POST: Administrator/Applications/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -66,7 +66,7 @@ namespace VoluntraGProject.Areas.NGODashboard.Controllers
             return View(application);
         }
 
-        // GET: NGODashboard/Applications/Edit/5
+        // GET: Administrator/Applications/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -82,7 +82,7 @@ namespace VoluntraGProject.Areas.NGODashboard.Controllers
             return View(application);
         }
 
-        // POST: NGODashboard/Applications/Edit/5
+        // POST: Administrator/Applications/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -117,7 +117,7 @@ namespace VoluntraGProject.Areas.NGODashboard.Controllers
             return View(application);
         }
 
-        // GET: NGODashboard/Applications/Delete/5
+        // GET: Administrator/Applications/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,7 +135,7 @@ namespace VoluntraGProject.Areas.NGODashboard.Controllers
             return View(application);
         }
 
-        // POST: NGODashboard/Applications/Delete/5
+        // POST: Administrator/Applications/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

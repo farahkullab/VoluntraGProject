@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 class="page-title">NGO Index</h1>
+<h1 class="page-title">NGO List</h1>
 
 <p>
     <a asp-action="Create" class="btn btn-primary">Create New</a>
@@ -13,13 +13,13 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th>NGO Name</th>
-            <th>Description</th>
-            <th>Detailed Description</th>
-            <th>Phone Number</th>
-            <th>Address</th>
-            <th>Type</th>
-            <th>Image</th>
+            <th>@Html.DisplayNameFor(model => model.NGOName)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>@Html.DisplayNameFor(model => model.DetailedDescription)</th>
+            <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+            <th>@Html.DisplayNameFor(model => model.Address)</th>
+            <th>@Html.DisplayNameFor(model => model.Type)</th>
+            <th>@Html.DisplayNameFor(model => model.Image)</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -37,8 +37,8 @@
                     <img src="@item.Image" alt="NGO Image" class="img-fluid ngo-image" />
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.NGOId" class="btn btn-warning btn-sm">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.NGOId" class="btn btn-info btn-sm">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@item.NGOId" class="btn btn-warning btn-sm">Edit</a> 
+                    <a asp-action="Details" asp-route-id="@item.NGOId" class="btn btn-info btn-sm">Details</a> 
                     <a asp-action="Delete" asp-route-id="@item.NGOId" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
@@ -47,7 +47,6 @@
 </table>
 
 <style>
-    /* Styling for the page */
     .page-title {
         text-align: center;
         margin-bottom: 30px;
@@ -78,12 +77,12 @@
     }
 
     .btn {
-        padding: 8px 16px; /* Increased padding */
+        padding: 8px 16px;
         text-decoration: none;
         margin: 3px;
         border-radius: 5px;
         color: white;
-        font-size: 1rem; /* Consistent font size */
+        font-size: 1rem;
         display: inline-block;
         line-height: 1.5;
         text-align: center;
@@ -91,27 +90,23 @@
 
     .btn-primary {
         background-color: #007bff;
-        width: auto;
     }
 
     .btn-warning {
         background-color: #ffc107;
-        width: auto;
     }
 
     .btn-info {
         background-color: #17a2b8;
-        width: auto;
     }
 
     .btn-danger {
         background-color: #dc3545;
-        width: auto;
     }
 
     .btn-sm {
         font-size: 0.875rem;
-        padding: 5px 10px; /* Small button padding */
+        padding: 5px 10px;
     }
 
     .img-fluid {
@@ -126,14 +121,11 @@
         border-radius: 50%;
     }
 
-    /* Hover effects for the action buttons */
     .btn:hover {
         opacity: 0.8;
     }
 
-    /* Ensure action buttons are aligned properly */
     td a {
         margin: 0 5px;
     }
 </style>
-

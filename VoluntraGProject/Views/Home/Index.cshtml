@@ -60,8 +60,8 @@
                             <i class="flaticon-diet"></i>
                         </div>
                         <div class="service-text">
-                            <h3>Healthy Food</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <h3>Arts and Culture</h3>
+                            <p>Empowering creativity through volunteering in cultural events, art exhibitions, and community workshops to enrich society.</p>
                         </div>
                     </div>
                 </div>
@@ -71,8 +71,8 @@
                             <i class="flaticon-water"></i>
                         </div>
                         <div class="service-text">
-                            <h3>Pure Water</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <h3>Environment</h3>
+                            <p>Join initiatives focused on environmental conservation, cleanup drives, and sustainable practices to protect our planet.</p>
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                         </div>
                         <div class="service-text">
                             <h3>Health Care</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Support health campaigns, blood drives, and awareness events aimed at improving public well-being.</p>
                         </div>
                     </div>
                 </div>
@@ -93,8 +93,8 @@
                             <i class="flaticon-education"></i>
                         </div>
                         <div class="service-text">
-                            <h3>Primary Education</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <h3>Education</h3>
+                            <p>Contribute by teaching, mentoring, and supporting educational programs to help learners achieve their goals.</p>
                         </div>
                     </div>
                 </div>
@@ -104,8 +104,8 @@
                             <i class="flaticon-home"></i>
                         </div>
                         <div class="service-text">
-                            <h3>Residence Facilities</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <h3>Empowerment</h3>
+                            <p>Assist in initiatives promoting empowerment, skill-building, and opportunities for underprivileged communities.</p>
                         </div>
                     </div>
                 </div>
@@ -115,8 +115,8 @@
                             <i class="flaticon-social-care"></i>
                         </div>
                         <div class="service-text">
-                            <h3>Social Care</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <h3>Community</h3>
+                            <p>Foster connections by participating in local events, social projects, and activities that bring people together.</p>
                         </div>
                     </div>
                 </div>
@@ -189,25 +189,46 @@
                 <div id="success"></div>
                 <form method="post" asp-controller="Feedback" asp-action="Create" name="sentMessage" id="contactForm" novalidate="novalidate">
                     <div class="control-group">
-                        <input  asp-for="Name"  type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
-                        <p class="help-block text-danger"></p>
+                        <input asp-for="Name" type="text" class="form-control" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                        <span asp-validation-for="Name" class="help-block text-danger"></span>
                     </div>
                     <div class="control-group">
-                        <input asp-for="Email" type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
-                        <p class="help-block text-danger"></p>
+                        <input asp-for="Email" type="email" class="form-control" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                        <span asp-validation-for="Email" class="help-block text-danger"></span>
                     </div>
                     <div class="control-group">
-                        <input  asp-for="Subject" type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
-                        <p class="help-block text-danger"></p>
+                        <input asp-for="Subject" type="text" class="form-control" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                        <span asp-validation-for="Subject" class="help-block text-danger"></span>
                     </div>
                     <div class="control-group">
-                        <textarea  asp-for="Message" class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
-                        <p class="help-block text-danger"></p>
+                        <textarea asp-for="Message" class="form-control" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                        <span asp-validation-for="Message" class="help-block text-danger"></span>
                     </div>
                     <div>
                         <button class="btn btn-custom" type="submit" id="sendMessageButton">Send Message</button>
                     </div>
                 </form>
+              @*   <form method="post" asp-controller="Feedback" asp-action="Create" name="sentMessage" id="contactForm" novalidate="novalidate">
+                    <div class="control-group">
+                        <input  type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="control-group">
+                        <input  type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="control-group">
+                        <input   type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="control-group">
+                        <textarea   class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div>
+                        <button class="btn btn-custom" type="submit" id="sendMessageButton">Send Message</button>
+                    </div>
+                </form> *@
             </div>
         </div>
     </div>

@@ -86,14 +86,15 @@ namespace VoluntraGProject.Areas.Administrator.Controllers
                     return RedirectToAction(nameof(Index));
                 }
                 _context.Add(nGO);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(nGO);
             }
-            return View(nGO);
-        }
+        
 
-        // GET: Administrator/NGOes/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+            // GET: Administrator/NGOes/Edit/5
+            public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {

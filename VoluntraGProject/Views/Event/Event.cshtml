@@ -22,7 +22,7 @@
     <div class="event">
         <div class="container">
             <div class="section-header text-center">
-                <p>Upcoming Events</p>
+                <p></p>
                 <h2>Be ready for our upcoming charity events</h2>
             </div>
             <div class="row">
@@ -36,6 +36,7 @@
                                     <p><i class="fa fa-calendar-alt"></i>@item.EventDate.ToString("yyyy-MM-dd")</p>
                                     <p><i class="far fa-clock"></i>@item.EventDate.ToString("HH:mm tt")</p>
                                     <p><i class="fa fa-map-marker-alt"></i>@item.Location</p>
+                                    <p><i class="fa fa-network-wired"></i>@item.NGO?.NGOName</p>
                                 </div>
                                 <div class="event-text">
                                     <h3>@item.EventName</h3>
